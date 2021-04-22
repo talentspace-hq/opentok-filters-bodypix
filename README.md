@@ -1,5 +1,8 @@
-# opentok-filters-bodypix
-Filters using Google BodyPix library
+# Demo of custom/blurry Backgrounds for Vonage
+Deployed using render.com at:
+https://vonage-backgrounds-demo.onrender.com/filter
+
+Applying Client-side Filters using Google BodyPix library
 
 1. add your opentok credentials in server.js. this demo uses a fixed session-id and generates tokens for this session-id
 2. "npm install" to install dependencies
