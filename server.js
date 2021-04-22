@@ -3,14 +3,16 @@
 
 // we've started you off with Express (https://expressjs.com/)
 // but feel free to use whatever libraries or frameworks you'd like through `package.json`.
+require("dotenv").config();
 const express = require("express");
 const app = express();
-var OpenTok = require('opentok');
+var OpenTok = require("opentok");
 
-var apikey="";
-var secret="";
-var sessionid="";
-var opentok = OpenTok(apikey,secret)
+var apikey = process.env.VONAGE_API_KEY;
+var secret = process.env.VONAGE_SECRET;
+var sessionid =
+  "1_MX40NjkwNjQ3NH5-MTYxOTA3NjA0NzA0MH5aU3djQ2ZGanRmYzRnbjkwdzhMSE1pNjR-fg";
+var opentok = OpenTok(apikey, secret);
 
 app.use(express.static("public"));
 
@@ -25,7 +27,7 @@ app.get("/filter", (request, response) => {
 
 app.get("/token", (request, response) => {
   var token = opentok.generateToken(sessionid);
-  response.json({"apikey":apikey,"sessionid":sessionid,"token":token});
+  response.json({ apikey: apikey, sessionid: sessionid, token: token });
 });
 
 // listen for requests :)
